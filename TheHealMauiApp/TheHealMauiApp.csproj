@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+    <!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TheHealMauiApp</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <!-- Display name -->
+    <ApplicationTitle>TheHealMauiApp</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.thehealmauiapp</ApplicationId>
+    <ApplicationIdGuid>25f39401-8c74-4bc9-abeb-61c13bdb1fd7</ApplicationIdGuid>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Images\CongThucNauAn\banhmytrung.png" />
+    <None Remove="Resources\Images\CongThucNauAn\mangtay.png" />
+    <None Remove="Resources\Images\CongThucNauAn\saladrau.png" />
+    <None Remove="Resources\Images\CongThucNauAn\thitbo.png" />
+    <None Remove="Resources\Images\CongThucNauAn\vietquat.png" />
+    <None Remove="Resources\Images\NavBar\apple.png" />
+    <None Remove="Resources\Images\NavBar\book.png" />
+    <None Remove="Resources\Images\NavBar\dinner.png" />
+    <None Remove="Resources\Images\NavBar\home.png" />
+    <None Remove="Resources\Images\NavBar\iapple.png" />
+    <None Remove="Resources\Images\NavBar\ibook.png" />
+    <None Remove="Resources\Images\NavBar\idinner.png" />
+    <None Remove="Resources\Images\NavBar\ihome.png" />
+    <None Remove="Resources\Images\NavBar\iplay_button.png" />
+    <None Remove="Resources\Images\NavBar\isearch.png" />
+    <None Remove="Resources\Images\NavBar\play_button.png" />
+    <None Remove="Resources\Images\NavBar\search.png" />
+    <None Remove="Resources\Images\recipe.png" />
+    <None Remove="Resources\Images\Stories\diabetes.png" />
+    <None Remove="Resources\Images\Stories\like.png" />
+    <None Remove="Resources\Images\Stories\lunch.png" />
+    <None Remove="Resources\Images\Stories\recipe.png" />
+    <None Remove="Resources\Images\Stories\salad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\NavBar\apple.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\iapple.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\book.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\ibook.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\dinner.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\idinner.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\search.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\home.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\ihome.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\iplay_button.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\play_button.png" />
+    <EmbeddedResource Include="Resources\Images\NavBar\isearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Reactor.Maui" Version="1.0.131" />
+    <PackageReference Include="Reactor.Maui.Canvas" Version="1.0.131" />
+    <PackageReference Include="Reactor.Maui.ScaffoldGenerator" Version="1.0.131" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiImage Include="Resources\Images\CongThucNauAn\banhmytrung.png" />
+    <MauiImage Include="Resources\Images\CongThucNauAn\mangtay.png" />
+    <MauiImage Include="Resources\Images\CongThucNauAn\saladrau.png" />
+    <MauiImage Include="Resources\Images\CongThucNauAn\thitbo.png" />
+    <MauiImage Include="Resources\Images\CongThucNauAn\vietquat.png" />
+    <MauiImage Include="Resources\Images\Stories\diabetes.png" />
+    <MauiImage Include="Resources\Images\Stories\like.png" />
+    <MauiImage Include="Resources\Images\Stories\lunch.png" />
+    <MauiImage Include="Resources\Images\Stories\recipe.png" />
+    <MauiImage Include="Resources\Images\Stories\salad.png" />
+  </ItemGroup>
+</Project>
