@@ -20,7 +20,12 @@ class AnimatedIcon : Component<AnimatedIconState>
 {
     private string _icon;
     private bool _isSelected;
-
+    Action _selected;
+    public AnimatedIcon Selected(Action action)
+    {
+        _selected = action;
+        return this;
+    }
     public AnimatedIcon Icon(string icon)
     {
         _icon = icon;
@@ -59,10 +64,12 @@ class AnimatedIcon : Component<AnimatedIconState>
 
     public override VisualNode Render()
     {
-        return new Align
+        return
+            new Align
         {
             new Picture($"TheHealMauiApp.Resources.Images.NavBar.{(_isSelected ? string.Empty : "i" )}{_icon}")
-                .Aspect(Aspect.Fill),
+                .Aspect(Aspect.Fill)
+                ,  
 
             new AnimationController
             {
@@ -88,12 +95,14 @@ class AnimatedIcon : Component<AnimatedIconState>
             }
             .IsEnabled(State.IsAnimating)
             .OnIsEnabledChanged(animating => State.IsAnimating = animating)
-        }
+            }
         .Height(24)
         .Width(24)
         .TranslationX(() => State.TranslatePoint.X)
         .TranslationY(() => State.TranslatePoint.Y)
         .HCenter()
-        .VCenter();
+        .VCenter()
+        
+        ;
     }
 }

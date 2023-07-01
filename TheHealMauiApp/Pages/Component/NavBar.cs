@@ -17,7 +17,12 @@ class NavBarState
 class NavBar : Component<NavBarState>
 {
     private bool _show;
-
+    Action _onShowSearchPage;
+    public NavBar OnShowSearchPage(Action action)
+    {
+        _onShowSearchPage = action;
+        return this;
+    }
     public NavBar Shown(bool show)
     {
         _show = show;
@@ -70,7 +75,8 @@ class NavBar : Component<NavBarState>
                             new NavBarButtonIcon()
                                 .Icon("search.png")
                                 .IsSelected(State.SelectedItem == NavItem.Search)
-                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Search)),
+                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Search))
+                                .Selected(_onShowSearchPage),
                             new NavBarButtonIcon()
                                 .Icon("apple.png")
                                 .IsSelected(State.SelectedItem == NavItem.Favorites)
@@ -109,6 +115,7 @@ class NavBar : Component<NavBarState>
 class NavBarButtonIconState
 {
     public float SelectionScaleX { get; set; }
+    public Action Select { get; set; }
 }
 
 class NavBarButtonIcon : Component<NavBarButtonIconState>
@@ -116,6 +123,12 @@ class NavBarButtonIcon : Component<NavBarButtonIconState>
     private string _icon;
     private bool _isSelected;
     private Action _onSelected;
+    Action _select;
+    public NavBarButtonIcon Selected(Action action)
+    {
+        _select = action;
+        return this;
+    }
 
     public NavBarButtonIcon Icon(string icon)
     {
@@ -144,6 +157,11 @@ class NavBarButtonIcon : Component<NavBarButtonIconState>
     protected override void OnPropsChanged()
     {
         State.SelectionScaleX = _isSelected ? 1.0f : 0.0f;
+        if (_isSelected)
+        {
+            State.Select = _select;
+            State.Select?.Invoke();
+        }
         base.OnPropsChanged();
     }
 
@@ -160,6 +178,7 @@ class NavBarButtonIcon : Component<NavBarButtonIconState>
                         new Box()
                             .BackgroundColor(Color.FromArgb("#81B4FF"))
                             .CornerRadius(3)
+                            
                     }
                     .VCenter()
                     .HCenter()
@@ -168,11 +187,13 @@ class NavBarButtonIcon : Component<NavBarButtonIconState>
                     .AnchorX(0.5f)
                     .ScaleX(State.SelectionScaleX)
                     .WithAnimation(duration: 100),
-
-                    new AnimatedIcon()
+                    
+                         new AnimatedIcon()
                         .Icon(_icon)
                         .IsSelected(_isSelected)
                         ,
+                    
+                   
                 }
             }
             .Width(46)

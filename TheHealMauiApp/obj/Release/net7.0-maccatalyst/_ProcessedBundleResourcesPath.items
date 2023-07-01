@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\banhmytrung.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\diabetes.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\like.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\lunch.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\mangtay.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\recipe.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\salad.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\saladrau.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\thitbo.png" />
+    <BundleResource Include="C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Release\net7.0-maccatalyst\resizetizer\r\Resources\vietquat.png" />
+    <BundleResource Include="obj\Release\net7.0-maccatalyst\resizetizer\f\OpenSans-Regular.ttf" />
+    <BundleResource Include="obj\Release\net7.0-maccatalyst\resizetizer\f\OpenSans-Semibold.ttf" />
+  </ItemGroup>
+</Project>

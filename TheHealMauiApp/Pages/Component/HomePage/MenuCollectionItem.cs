@@ -9,7 +9,6 @@ namespace TheHealMauiApp.Pages.Component.HomePage;
 
 class MenuCollectionItemState
 {
-
 }
  class MenuCollectionItem:Component<MenuCollectionItemState>
 {
@@ -93,6 +92,7 @@ class MenuCollectionItemState
            .StrokeShape(new RoundRectangle().CornerRadius(30))
            .StrokeThickness(1)
            .Stroke(Colors.Transparent)
+           .Shadow(new Shadow().Brush(Theme.ShadowBrush).Offset(1,1).Opacity(0.2f))
        };
     }
 }

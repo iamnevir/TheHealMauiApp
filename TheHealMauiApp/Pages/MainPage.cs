@@ -14,59 +14,62 @@ namespace TheHealMauiApp.Pages;
 class MainPageState
 {
     public bool IsScrollDown { get; set; } = false;
+    public bool ShowSearchPage { get; set; }
 }
 
 class MainPage : Component<MainPageState>
 {
-
     public override VisualNode Render()
     {
         
+        
         return new ContentPage()
-        {
-            new Grid
+        { 
+            new Grid("*","*")
             {
+                  new SearchPage()
+                      .OnClose(()=>SetState(s => s.ShowSearchPage = false))
+                      .Show(State.ShowSearchPage),
+                  new Border
+                     {
+                          new Grid()
+                          {
+                               new Label("The heal knowledge")
+                                   .Margin(10,0)
+                                   .FontSize(25)
+                                   .FontFamily("OpenSansSemiBold")
+                                   .TextColor(Colors.Black)
+                                   .VerticalTextAlignment(TextAlignment.Center)
+                                   .FontAttributes(MauiControls.FontAttributes.Bold)
+                                   .VCenter(),
 
-                 new Border
-                 {
-                      new Grid()
-                      {
-                           new Label("The heal knowledge")
-                               .Margin(10,0)
-                               .FontSize(25)
-                               .FontFamily("OpenSansSemiBold")
-                               .TextColor(Colors.Black)
-                               .VerticalTextAlignment(TextAlignment.Center)
-                               .FontAttributes(MauiControls.FontAttributes.Bold)
-                               .VCenter(),
-
-                               new Border
-                               {
-                                   new Label("Get premium")
-                                       .FontFamily("OpenSansSemiBold")
-                                       .FontSize (12)
-                                       .TextColor(Colors.White)
-                                       .HCenter()
-                                       .VCenter()
-                               }.BackgroundColor (Theme.Purple)
-                                .StrokeShape(new RoundRectangle().CornerRadius(20))
-                                .HEnd()
-                                .WidthRequest(100)
-                                .HeightRequest(30)
-                                .Margin(10,0,10,0)
-                      }.BackgroundColor(Colors.Transparent)
-                       .HeightRequest(55)
-                       .VStart()
-                 }.BackgroundColor(Colors.White)
-                  .StrokeThickness(0)
-                  .HeightRequest (55)
-                  .Margin(0,-1,0,0)
-                  .VStart()
-                  .StrokeShape(new RoundRectangle().CornerRadius(4))
-                  .ZIndex(1),
+                                   new Border
+                                   {
+                                       new Label("Get premium")
+                                           .FontFamily("OpenSansSemiBold")
+                                           .FontSize (12)
+                                           .TextColor(Colors.White)
+                                           .HCenter()
+                                           .VCenter()
+                                   }.BackgroundColor (Theme.Purple)
+                                    .StrokeShape(new RoundRectangle().CornerRadius(20))
+                                    .HEnd()
+                                    .WidthRequest(100)
+                                    .HeightRequest(30)
+                                    .Margin(10,0,10,0)
+                          }.BackgroundColor(Colors.Transparent)
+                           .HeightRequest(55)
+                           .VStart()
+                     }.BackgroundColor(Colors.White)
+                      .StrokeThickness(0)
+                      .HeightRequest (55)
+                      .Margin(0,-1,0,0)
+                      .VStart()
+                      .StrokeShape(new RoundRectangle().CornerRadius(4))
+                      .ZIndex(1),
                   new ScrollView
                   {
-                      
+
                       new Grid("700,50,200,Auto,Auto,Auto,700,100","*")
                       {
                           new MenuCollectionItem()
@@ -142,11 +145,13 @@ class MainPage : Component<MainPageState>
                    .OnScrolled(()=>SetState(s=>s.IsScrollDown=!State.IsScrollDown)),
                   new NavBar()
                       .Shown(State.IsScrollDown==false)
+                      .OnShowSearchPage(()=>SetState(s=>s.ShowSearchPage=true))
+                      
             }
 
 
 
-        };
+        }.Set(MauiControls.NavigationPage.HasNavigationBarProperty, false);
     }
 
     private VisualNode RenderCongThucNauAn(CongThucNauAn collection)

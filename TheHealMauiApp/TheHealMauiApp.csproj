@@ -24,6 +24,9 @@
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+  </PropertyGroup>
   <ItemGroup>
     <!-- App Icon -->
     <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -42,6 +45,15 @@
     <None Remove="Resources\Images\CongThucNauAn\saladrau.png" />
     <None Remove="Resources\Images\CongThucNauAn\thitbo.png" />
     <None Remove="Resources\Images\CongThucNauAn\vietquat.png" />
+    <None Remove="Resources\Images\Featured\breakfast.png" />
+    <None Remove="Resources\Images\Featured\cake.png" />
+    <None Remove="Resources\Images\Featured\cooking.png" />
+    <None Remove="Resources\Images\Featured\healthy.png" />
+    <None Remove="Resources\Images\Featured\meat.png" />
+    <None Remove="Resources\Images\Featured\vegetable.png" />
+    <None Remove="Resources\Images\ForYou\bg1.png" />
+    <None Remove="Resources\Images\ForYou\bg2.png" />
+    <None Remove="Resources\Images\ForYou\bg3.png" />
     <None Remove="Resources\Images\NavBar\apple.png" />
     <None Remove="Resources\Images\NavBar\book.png" />
     <None Remove="Resources\Images\NavBar\dinner.png" />
@@ -55,6 +67,10 @@
     <None Remove="Resources\Images\NavBar\play_button.png" />
     <None Remove="Resources\Images\NavBar\search.png" />
     <None Remove="Resources\Images\recipe.png" />
+    <None Remove="Resources\Images\SearchBar\close.png" />
+    <None Remove="Resources\Images\SearchBar\close1.png" />
+    <None Remove="Resources\Images\SearchBar\micro.png" />
+    <None Remove="Resources\Images\SearchBar\searchbar.png" />
     <None Remove="Resources\Images\Stories\diabetes.png" />
     <None Remove="Resources\Images\Stories\like.png" />
     <None Remove="Resources\Images\Stories\lunch.png" />
@@ -89,6 +105,19 @@
     <MauiImage Include="Resources\Images\CongThucNauAn\saladrau.png" />
     <MauiImage Include="Resources\Images\CongThucNauAn\thitbo.png" />
     <MauiImage Include="Resources\Images\CongThucNauAn\vietquat.png" />
+    <MauiImage Include="Resources\Images\Featured\breakfast.png" />
+    <MauiImage Include="Resources\Images\Featured\cake.png" />
+    <MauiImage Include="Resources\Images\Featured\cooking.png" />
+    <MauiImage Include="Resources\Images\Featured\healthy.png" />
+    <MauiImage Include="Resources\Images\Featured\meat.png" />
+    <MauiImage Include="Resources\Images\Featured\vegetable.png" />
+    <MauiImage Include="Resources\Images\ForYou\bg1.png" />
+    <MauiImage Include="Resources\Images\ForYou\bg2.png" />
+    <MauiImage Include="Resources\Images\ForYou\bg3.png" />
+    <MauiImage Include="Resources\Images\SearchBar\close.png" />
+    <MauiImage Include="Resources\Images\SearchBar\close1.png" />
+    <MauiImage Include="Resources\Images\SearchBar\micro.png" />
+    <MauiImage Include="Resources\Images\SearchBar\searchbar.png" />
     <MauiImage Include="Resources\Images\Stories\diabetes.png" />
     <MauiImage Include="Resources\Images\Stories\like.png" />
     <MauiImage Include="Resources\Images\Stories\lunch.png" />
