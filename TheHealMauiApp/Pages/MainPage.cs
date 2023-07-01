@@ -4,8 +4,10 @@ using MauiReactor.Canvas;
 using MauiReactor.Shapes;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using TheHealMauiApp.Models;
 using TheHealMauiApp.Pages.Component;
+using TheHealMauiApp.Pages.Component.FavoritePage;
 using TheHealMauiApp.Pages.Component.HomePage;
 using TheHealMauiApp.Resources.Styles;
 
@@ -15,21 +17,28 @@ class MainPageState
 {
     public bool IsScrollDown { get; set; } = false;
     public bool ShowSearchPage { get; set; }
+    
 }
 
 class MainPage : Component<MainPageState>
 {
+
+   private async void OpenKeHoach()
+    {
+         await Navigation.PushAsync<KeHoach>();
+    }
     public override VisualNode Render()
     {
-        
-        
-        return new ContentPage()
-        { 
-            new Grid("*","*")
+        return new NavigationPage()
+        {
+            new ContentPage
             {
-                  new SearchPage()
+                  new Grid("*","*")
+            {
+                new SearchPage()
                       .OnClose(()=>SetState(s => s.ShowSearchPage = false))
                       .Show(State.ShowSearchPage),
+
                   new Border
                      {
                           new Grid()
@@ -57,6 +66,7 @@ class MainPage : Component<MainPageState>
                                     .WidthRequest(100)
                                     .HeightRequest(30)
                                     .Margin(10,0,10,0)
+                                    .OnTapped(OpenKeHoach)
                           }.BackgroundColor(Colors.Transparent)
                            .HeightRequest(55)
                            .VStart()
@@ -146,11 +156,9 @@ class MainPage : Component<MainPageState>
                   new NavBar()
                       .Shown(State.IsScrollDown==false)
                       .OnShowSearchPage(()=>SetState(s=>s.ShowSearchPage=true))
-                      
+
             }
-
-
-
+            }
         }.Set(MauiControls.NavigationPage.HasNavigationBarProperty, false);
     }
 

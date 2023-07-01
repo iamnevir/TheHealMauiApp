@@ -1005,3 +1005,7 @@ C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-andro
 C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\android\assets\System.Xml.dll
+C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\resizetizer\r\drawable\banhmikep.png
+C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\resizetizer\r\drawable\rauxao.png
+C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\resizetizer\r\drawable\xienque.png
+C:\Users\trick\source\repos\TheHealMauiApp\TheHealMauiApp\obj\Debug\net7.0-android\resizetizer\r\drawable\locked.png

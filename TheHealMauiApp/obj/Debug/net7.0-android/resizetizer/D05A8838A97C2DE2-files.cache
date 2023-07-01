@@ -1,4 +1,5 @@
-﻿obj\Debug\net7.0-android\resizetizer\r\drawable\banhmytrung.png
+﻿obj\Debug\net7.0-android\resizetizer\r\drawable\banhmikep.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\banhmytrung.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\bg1.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\bg2.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\bg3.png
@@ -12,6 +13,7 @@ obj\Debug\net7.0-android\resizetizer\r\drawable\diabetes.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\healthy.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\heart.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\like.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\locked.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\lunch.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\mangtay.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\meat.png
@@ -21,6 +23,7 @@ obj\Debug\net7.0-android\resizetizer\r\drawable\mon1.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\noodles.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\paste.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\play.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\rauxao.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\recipe.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\salad.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\saladrau.png
@@ -31,6 +34,7 @@ obj\Debug\net7.0-android\resizetizer\r\drawable\trolley.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\vegetable.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\vietquat.png
 obj\Debug\net7.0-android\resizetizer\r\drawable\windows.png
+obj\Debug\net7.0-android\resizetizer\r\drawable\xienque.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-hdpi\splash.png
 obj\Debug\net7.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png

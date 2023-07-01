@@ -18,11 +18,18 @@ class NavBar : Component<NavBarState>
 {
     private bool _show;
     Action _onShowSearchPage;
+    Action _onShowFavoritePage;
+    public NavBar OnShowFavoritePage(Action action)
+    {
+        _onShowFavoritePage = action;
+        return this;
+    }
     public NavBar OnShowSearchPage(Action action)
     {
         _onShowSearchPage = action;
         return this;
     }
+    
     public NavBar Shown(bool show)
     {
         _show = show;
@@ -80,7 +87,8 @@ class NavBar : Component<NavBarState>
                             new NavBarButtonIcon()
                                 .Icon("apple.png")
                                 .IsSelected(State.SelectedItem == NavItem.Favorites)
-                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Favorites)),
+                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Favorites))
+                                .Selected(_onShowFavoritePage),
                             new NavBarButtonIcon()
                                 .Icon("play_button.png")
                                 .IsSelected(State.SelectedItem == NavItem.Play)
