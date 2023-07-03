@@ -39,12 +39,14 @@ class NavBar : Component<NavBarState>
     protected override void OnMounted()
     {
         State.TranslationY = _show ? 0 : 150;
+        State.SelectedItem = NavItem.Home;
         base.OnMounted();
     }
 
     protected override void OnPropsChanged()
     {
         State.TranslationY = _show ? 0 : 150;
+        State.SelectedItem = NavItem.Home;
         base.OnPropsChanged();
     }
 
@@ -165,11 +167,6 @@ class NavBarButtonIcon : Component<NavBarButtonIconState>
     protected override void OnPropsChanged()
     {
         State.SelectionScaleX = _isSelected ? 1.0f : 0.0f;
-        if (_isSelected)
-        {
-            State.Select = _select;
-            State.Select?.Invoke();
-        }
         base.OnPropsChanged();
     }
 
@@ -199,6 +196,7 @@ class NavBarButtonIcon : Component<NavBarButtonIconState>
                          new AnimatedIcon()
                         .Icon(_icon)
                         .IsSelected(_isSelected)
+                        .Selected(_select)
                         ,
                     
                    

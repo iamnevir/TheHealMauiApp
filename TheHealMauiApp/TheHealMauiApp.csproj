@@ -40,6 +40,7 @@
     <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
     <None Remove="Resources\Images\CongThucNauAn\banhmytrung.png" />
     <None Remove="Resources\Images\CongThucNauAn\mangtay.png" />
     <None Remove="Resources\Images\CongThucNauAn\saladrau.png" />
@@ -58,6 +59,15 @@
     <None Remove="Resources\Images\KeHoach\locked.png" />
     <None Remove="Resources\Images\KeHoach\rauxao.png" />
     <None Remove="Resources\Images\KeHoach\xienque.png" />
+    <None Remove="Resources\Images\LoginPage\arrow_right.png" />
+    <None Remove="Resources\Images\LoginPage\close_boarding.png" />
+    <None Remove="Resources\Images\LoginPage\close_login.png" />
+    <None Remove="Resources\Images\LoginPage\email.png" />
+    <None Remove="Resources\Images\LoginPage\logo_apple.png" />
+    <None Remove="Resources\Images\LoginPage\logo_email.png" />
+    <None Remove="Resources\Images\LoginPage\logo_google.png" />
+    <None Remove="Resources\Images\LoginPage\onboarding_background.png" />
+    <None Remove="Resources\Images\LoginPage\start_course_button.png" />
     <None Remove="Resources\Images\NavBar\apple.png" />
     <None Remove="Resources\Images\NavBar\book.png" />
     <None Remove="Resources\Images\NavBar\dinner.png" />
@@ -80,6 +90,8 @@
     <None Remove="Resources\Images\Stories\lunch.png" />
     <None Remove="Resources\Images\Stories\recipe.png" />
     <None Remove="Resources\Images\Stories\salad.png" />
+    <None Remove="Resources\Raw\login_failed.json" />
+    <None Remove="Resources\Raw\login_successful.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\NavBar\apple.png" />
@@ -99,6 +111,8 @@
     <PackageReference Include="Reactor.Maui" Version="1.0.131" />
     <PackageReference Include="Reactor.Maui.Canvas" Version="1.0.131" />
     <PackageReference Include="Reactor.Maui.ScaffoldGenerator" Version="1.0.131" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
+    <PackageReference Include="Syncfusion.Maui.Popup" Version="22.1.36" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Styles\" />
@@ -122,6 +136,15 @@
     <MauiImage Include="Resources\Images\KeHoach\locked.png" />
     <MauiImage Include="Resources\Images\KeHoach\rauxao.png" />
     <MauiImage Include="Resources\Images\KeHoach\xienque.png" />
+    <MauiImage Include="Resources\Images\LoginPage\arrow_right.png" />
+    <MauiImage Include="Resources\Images\LoginPage\close_boarding.png" />
+    <MauiImage Include="Resources\Images\LoginPage\close_login.png" />
+    <MauiImage Include="Resources\Images\LoginPage\email.png" />
+    <MauiImage Include="Resources\Images\LoginPage\logo_apple.png" />
+    <MauiImage Include="Resources\Images\LoginPage\logo_email.png" />
+    <MauiImage Include="Resources\Images\LoginPage\logo_google.png" />
+    <MauiImage Include="Resources\Images\LoginPage\onboarding_background.png" />
+    <EmbeddedResource Include="Resources\Images\LoginPage\start_course_button.png" />
     <MauiImage Include="Resources\Images\SearchBar\close.png" />
     <MauiImage Include="Resources\Images\SearchBar\close1.png" />
     <MauiImage Include="Resources\Images\SearchBar\micro.png" />

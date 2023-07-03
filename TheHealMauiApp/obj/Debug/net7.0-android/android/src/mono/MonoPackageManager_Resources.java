@@ -20,6 +20,17 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Maui.Graphics.dll",
 		"MauiReactor.dll",
 		"MauiReactor.Canvas.dll",
+		"SkiaSharp.dll",
+		"SkiaSharp.Extended.dll",
+		"SkiaSharp.Extended.UI.dll",
+		"SkiaSharp.SceneGraph.dll",
+		"SkiaSharp.Skottie.dll",
+		"SkiaSharp.Views.Android.dll",
+		"SkiaSharp.Views.Maui.Controls.dll",
+		"SkiaSharp.Views.Maui.Core.dll",
+		"Syncfusion.Licensing.dll",
+		"Syncfusion.Maui.Core.dll",
+		"Syncfusion.Maui.Popup.dll",
 		"System.CodeDom.dll",
 		"Xamarin.Android.Glide.dll",
 		"Xamarin.Android.Glide.Annotations.dll",
@@ -102,6 +113,7 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Kotlin.StdLib.Jdk8.dll",
 		"Xamarin.KotlinX.Coroutines.Android.dll",
 		"Xamarin.KotlinX.Coroutines.Core.Jvm.dll",
+		"Syncfusion.Maui.Popup.resources.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

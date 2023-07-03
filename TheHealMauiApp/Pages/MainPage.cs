@@ -1,10 +1,5 @@
-﻿using MauiReactor;
-using MauiReactor.Animations;
-using MauiReactor.Canvas;
+﻿using MauiReactor.Canvas;
 using MauiReactor.Shapes;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using TheHealMauiApp.Models;
 using TheHealMauiApp.Pages.Component;
 using TheHealMauiApp.Pages.Component.FavoritePage;
@@ -15,9 +10,10 @@ namespace TheHealMauiApp.Pages;
 
 class MainPageState
 {
-    public bool IsScrollDown { get; set; } = false;
+    public bool IsScrollDown { get; set; } = true;
     public bool ShowSearchPage { get; set; }
-    
+    public bool ShowOnboarding { get; set; } 
+
 }
 
 class MainPage : Component<MainPageState>
@@ -27,6 +23,11 @@ class MainPage : Component<MainPageState>
     {
          await Navigation.PushAsync<KeHoach>();
     }
+    protected override void OnMounted()
+    {
+        State.IsScrollDown = true;
+        base.OnMounted();
+    }
     public override VisualNode Render()
     {
         return new NavigationPage()
@@ -34,132 +35,139 @@ class MainPage : Component<MainPageState>
             new ContentPage
             {
                   new Grid("*","*")
-            {
-                new SearchPage()
-                      .OnClose(()=>SetState(s => s.ShowSearchPage = false))
-                      .Show(State.ShowSearchPage),
+                    {
 
-                  new Border
-                     {
-                          new Grid()
-                          {
-                               new Label("The heal knowledge")
-                                   .Margin(10,0)
-                                   .FontSize(25)
-                                   .FontFamily("OpenSansSemiBold")
-                                   .TextColor(Colors.Black)
-                                   .VerticalTextAlignment(TextAlignment.Center)
-                                   .FontAttributes(MauiControls.FontAttributes.Bold)
-                                   .VCenter(),
+                       new Onboarding()
+                        .Show(State.ShowOnboarding)
+                        .OnClose(()=>SetState(s => s.ShowOnboarding = false)),
 
-                                   new Border
-                                   {
-                                       new Label("Get premium")
+                        new SearchPage()
+                              .OnClose(()=>SetState(s => s.ShowSearchPage = false))
+                              .Show(State.ShowSearchPage),
+
+                          new Border
+                             {
+                                  new Grid()
+                                  {
+                                       new Label("The heal knowledge")
+                                           .Margin(10,0)
+                                           .FontSize(25)
                                            .FontFamily("OpenSansSemiBold")
-                                           .FontSize (12)
-                                           .TextColor(Colors.White)
-                                           .HCenter()
-                                           .VCenter()
-                                   }.BackgroundColor (Theme.Purple)
-                                    .StrokeShape(new RoundRectangle().CornerRadius(20))
-                                    .HEnd()
-                                    .WidthRequest(100)
-                                    .HeightRequest(30)
-                                    .Margin(10,0,10,0)
-                                    .OnTapped(OpenKeHoach)
-                          }.BackgroundColor(Colors.Transparent)
-                           .HeightRequest(55)
-                           .VStart()
-                     }.BackgroundColor(Colors.White)
-                      .StrokeThickness(0)
-                      .HeightRequest (55)
-                      .Margin(0,-1,0,0)
-                      .VStart()
-                      .StrokeShape(new RoundRectangle().CornerRadius(4))
-                      .ZIndex(1),
-                  new ScrollView
-                  {
+                                           .TextColor(Colors.Black)
+                                           .VerticalTextAlignment(TextAlignment.Center)
+                                           .FontAttributes(MauiControls.FontAttributes.Bold)
+                                           .VCenter(),
 
-                      new Grid("700,50,200,Auto,Auto,Auto,700,100","*")
-                      {
-                          new MenuCollectionItem()
-                              .Collection1(MenuCollection.Collections1)
-                              .Collection2(MenuCollection.Collections11)
-                              .GridRow(0),
-
-                          new Label("Tin")
-                                    .FontSize(20)
-                                    .FontAttributes(MauiControls.FontAttributes.Bold)
-                                    .GridRow(1)
-                                    .HStart()
-                                    .Margin(10,10,0,0)
-                                    .FontFamily("OpenSansSemiBold")
-                                    .BackgroundColor(Theme.XamTrang),
-
-                          new Grid
+                                           new Border
+                                           {
+                                               new Label("Get premium")
+                                                   .FontFamily("OpenSansSemiBold")
+                                                   .FontSize (12)
+                                                   .TextColor(Colors.White)
+                                                   .HCenter()
+                                                   .VCenter()
+                                           }.BackgroundColor (Theme.Purple)
+                                            .StrokeShape(new RoundRectangle().CornerRadius(20))
+                                            .HEnd()
+                                            .WidthRequest(100)
+                                            .HeightRequest(30)
+                                            .Margin(10,0,10,0)
+                                            .OnTapped(()=>SetState(s=>s.ShowOnboarding=true)),
+                                  }.BackgroundColor(Colors.Transparent)
+                                   .HeightRequest(55)
+                                   .VStart()
+                             }.BackgroundColor(Colors.White)
+                              .StrokeThickness(0)
+                              .HeightRequest (55)
+                              .Margin(0,-1,0,0)
+                              .VStart()
+                              .StrokeShape(new RoundRectangle().CornerRadius(4))
+                              .ZIndex(1),
+                          new ScrollView
                           {
-                              new ScrollView()
+
+                              new Grid("700,50,200,Auto,Auto,Auto,700,100","*")
                               {
+                                  new MenuCollectionItem()
+                                      .Collection1(MenuCollection.Collections1)
+                                      .Collection2(MenuCollection.Collections11)
+                                      .GridRow(0),
+
+                                  new Label("Tin")
+                                            .FontSize(20)
+                                            .FontAttributes(MauiControls.FontAttributes.Bold)
+                                            .GridRow(1)
+                                            .HStart()
+                                            .Margin(10,10,0,0)
+                                            .FontFamily("OpenSansSemiBold")
+                                            .BackgroundColor(Theme.XamTrang),
+
                                   new Grid
                                   {
-                                      new CollectionView()
-                                          .ItemsSource(StoriesCollection.Stories,RenderStory)
-                                          .ItemsLayout(new HorizontalLinearItemsLayout().ItemSpacing(10))
+                                      new ScrollView()
+                                      {
+                                          new Grid
+                                          {
+                                              new CollectionView()
+                                                  .ItemsSource(StoriesCollection.Stories,RenderStory)
+                                                  .ItemsLayout(new HorizontalLinearItemsLayout().ItemSpacing(10))
+                                          }
+                                      }
                                   }
-                              }
-                          }
-                          .GridRow(2)
-                          .Margin(10,0,0,0)
-                          .BackgroundColor(Theme.XamTrang),
-                          new Label("Mới và đáng chú ý")
-                                    .FontSize(40)
-                                    .FontAttributes(MauiControls.FontAttributes.Bold)
-                                    .GridRow(3)
-                                    .FontFamily("OpenSansSemiBold")
-                                    .Margin(10,10,0,10),
-                           new Label("Đặc sắc")
-                                    .FontSize(20)
-                                    .FontAttributes(MauiControls.FontAttributes.Bold)
-                                    .GridRow(4)
-                                    .FontFamily("OpenSansSemiBold")
-                                    .Margin(10,10,0,10),
-                            new Grid
-                            {
-                                new ScrollView()
-                                {
+                                  .GridRow(2)
+                                  .Margin(10,0,0,0)
+                                  .BackgroundColor(Theme.XamTrang),
+                                  new Label("Mới và đáng chú ý")
+                                            .FontSize(40)
+                                            .FontAttributes(MauiControls.FontAttributes.Bold)
+                                            .GridRow(3)
+                                            .FontFamily("OpenSansSemiBold")
+                                            .Margin(10,10,0,10),
+                                   new Label("Đặc sắc")
+                                            .FontSize(20)
+                                            .FontAttributes(MauiControls.FontAttributes.Bold)
+                                            .GridRow(4)
+                                            .FontFamily("OpenSansSemiBold")
+                                            .Margin(10,10,0,10),
                                     new Grid
                                     {
-                                         new CollectionView()
-                                             .ItemsSource(CongThucNauAn.CongThucs,RenderCongThucNauAn)
-                                             .ItemsLayout(new HorizontalLinearItemsLayout().ItemSpacing(5))
+                                        new ScrollView()
+                                        {
+                                            new Grid
+                                            {
+                                                 new CollectionView()
+                                                     .ItemsSource(CongThucNauAn.CongThucs,RenderCongThucNauAn)
+                                                     .ItemsLayout(new HorizontalLinearItemsLayout().ItemSpacing(5))
+                                            }
+                                        }
                                     }
-                                }
-                            }
-                          .GridRow(5)
-                          .BackgroundColor(Theme.XamTrang)
-                          .Margin(10,0,0,30),
-                           new MenuCollectionItem()
-                              .Collection1(MenuCollection.Collections2)
-                              .Collection2(MenuCollection.Collections21)
-                              .GridRow(6),
-                           new Border()
-                           {
-                               new Label("Made with love by Nevir")
-                                   .TextColor(Colors.Gray)
-                                   .Margin(20,10,0,0)
-                           }.GridRow(7)
-                            .Stroke(Colors.Transparent)
-                            .StrokeThickness(0)
-                      }.BackgroundColor(Theme.XamTrang)
-                  }.Margin(0,10,0,0)
-                   .OnScrolled(()=>SetState(s=>s.IsScrollDown=!State.IsScrollDown)),
-                  new NavBar()
-                      .Shown(State.IsScrollDown==false)
-                      .OnShowSearchPage(()=>SetState(s=>s.ShowSearchPage=true))
+                                  .GridRow(5)
+                                  .BackgroundColor(Theme.XamTrang)
+                                  .Margin(10,0,0,30),
+                                   new MenuCollectionItem()
+                                      .Collection1(MenuCollection.Collections2)
+                                      .Collection2(MenuCollection.Collections21)
+                                      .GridRow(6),
+                                   new Border()
+                                   {
+                                       new Label("Made with love by Nevir")
+                                           .TextColor(Colors.Gray)
+                                           .Margin(20,10,0,0)
+                                   }.GridRow(7)
+                                    .Stroke(Colors.Transparent)
+                                    .StrokeThickness(0)
+                              }.BackgroundColor(Theme.XamTrang)
+                          }.Margin(0,10,0,0)
+                           ,
+                          new NavBar()
+                              .Shown(State.IsScrollDown)
+                              .OnShowSearchPage(()=>SetState(s=>s.ShowSearchPage=true))
+                              .OnShowFavoritePage(OpenKeHoach)
 
-            }
-            }
-        }.Set(MauiControls.NavigationPage.HasNavigationBarProperty, false);
+                    }
+            }.Set(MauiControls.NavigationPage.HasNavigationBarProperty, false)
+        }
+        .BarBackgroundColor(Colors.White);
     }
 
     private VisualNode RenderCongThucNauAn(CongThucNauAn collection)
