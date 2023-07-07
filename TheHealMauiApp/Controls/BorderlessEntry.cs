@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Java.Lang.Annotation;
 using Microsoft.Maui.Platform;
 
 namespace TheHealMauiApp.Controls.Native {

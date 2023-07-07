@@ -71,7 +71,7 @@ class Login : Component<LoginState>
             {
                 new Grid("Auto, 78, Auto, Auto, *, Auto, Auto, 88", "*")
                 {
-                    new Label("Sign in")
+                    new Label("Đăng nhập")
                         .FontFamily("Poppins")
                         .FontSize(34)
                         .TextColor(Colors.Black)
@@ -80,7 +80,7 @@ class Login : Component<LoginState>
 
                     new CanvasView()
                     {
-                        new Text("Access to 240+ hours of content. \r\nLearn design and code, by building real apps with React and Swift.")
+                        new Text("Với 240+ các chuyên gia khoa học. \r\nHọc để chữa lành và phát triển bản thân với The Heal Knowledge")
                             .FontSize(15)
                             .FontColor(Colors.Black.WithAlpha(0.5f))
                             .FontWeight(700)
@@ -93,7 +93,7 @@ class Login : Component<LoginState>
                         .GridRow(2)
                         .Margin(0,24,0,0),
 
-                    RenderEntry("Password", State.Password, v => State.Password = v, !State.LoggingIn, "Forgot password")
+                    RenderEntry("Mật khẩu", State.Password, v => State.Password = v, !State.LoggingIn, "Quên mật khẩu?")
                         .IsEnabled(State.LoggingIn)
                         .GridRow(3)
                         .Margin(0,24,0,24),
@@ -105,7 +105,7 @@ class Login : Component<LoginState>
                         .OnTapped(OnSignin)
                         .GridRow(4),
 
-                    new Label("Sign up with Email, Apple or Google")
+                    new Label("Đăng nhập với Email, Apple hoặc Google")
                         .FontSize(13)
                         .TextColor(Colors.Black.WithAlpha(0.5f))
                         .Margin(0,24,0,0)

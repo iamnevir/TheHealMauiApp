@@ -76,7 +76,7 @@ class Onboarding : Component<OnboardingState>
 
                 RenderCloseButton(),
 
-                new Label("Learn design & code")
+                new Label("Học chữa lành và đối mặt")
                     .GridRow(1)
                     .Margin(40, 32, 120, 30)
                     .FontFamily("Poppins")
@@ -84,7 +84,7 @@ class Onboarding : Component<OnboardingState>
                     .FontAttributes(Microsoft.Maui.Controls.FontAttributes.Bold)
                     .TextColor(Colors.Black),
 
-                new Label("Don’t skip design. Learn design and code, by building real apps with React and Swift. Complete courses about the best tools.")
+                new Label("Đừng bỏ qua nó. Đây có thể là cơ hội tốt cho bạn, chưa bao giờ là muộn để tiến bộ và phát triển. Hãy cùng chúng tôi đối mặt với khó khăn và thử thách.")
                     .FontSize(17)
                     .GridRow(2)
                     .Margin(40, 0, 120, 0)
@@ -94,7 +94,7 @@ class Onboarding : Component<OnboardingState>
                     .OnTapped(()=>SetState(s => s.ShowLogin = true))
                     .GridRow(3),
 
-                new Label("Purchase includes access to 30+ courses, 240+ premium tutorials, 120+ hours of videos, source files and certificates.")
+                new Label("Hơn 30+ khóa học, 2000+ cuốn sách và công thức nấu ăn, 200 triệu lượt xem hàng tháng cùng bách khoa toàn thư về thực phẩm.")
                     .FontSize(12)
                     .GridRow(4)
                     .TextColor(Colors.Black)

@@ -2,8 +2,10 @@
 using MauiReactor.Shapes;
 using TheHealMauiApp.Models;
 using TheHealMauiApp.Pages.Component;
+using TheHealMauiApp.Pages.Component.CalculatorPage;
 using TheHealMauiApp.Pages.Component.FavoritePage;
 using TheHealMauiApp.Pages.Component.HomePage;
+using TheHealMauiApp.Pages.Component.VideoPage;
 using TheHealMauiApp.Resources.Styles;
 
 namespace TheHealMauiApp.Pages;
@@ -22,6 +24,14 @@ class MainPage : Component<MainPageState>
    private async void OpenKeHoach()
     {
          await Navigation.PushAsync<KeHoach>();
+    }
+    private async void OpenVideo()
+    {
+        await Navigation.PushAsync<VideoPage>();
+    }
+    private async void OpenCalc()
+    {
+        await Navigation.PushAsync<CalcPage>();
     }
     protected override void OnMounted()
     {
@@ -163,6 +173,8 @@ class MainPage : Component<MainPageState>
                               .Shown(State.IsScrollDown)
                               .OnShowSearchPage(()=>SetState(s=>s.ShowSearchPage=true))
                               .OnShowFavoritePage(OpenKeHoach)
+                              .OnShowVideoPage(OpenVideo)
+                              .OnShowCalcPage(OpenCalc)
 
                     }
             }.Set(MauiControls.NavigationPage.HasNavigationBarProperty, false)

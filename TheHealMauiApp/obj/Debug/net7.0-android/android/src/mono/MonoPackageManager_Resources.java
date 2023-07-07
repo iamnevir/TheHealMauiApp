@@ -13,6 +13,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.Extensions.Configuration.Abstractions.dll",
 		"Microsoft.Extensions.DependencyInjection.dll",
 		"Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+		"Microsoft.Extensions.Http.dll",
 		"Microsoft.Extensions.Logging.dll",
 		"Microsoft.Extensions.Logging.Abstractions.dll",
 		"Microsoft.Extensions.Options.dll",

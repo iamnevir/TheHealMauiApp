@@ -23,6 +23,9 @@ public  class Theme
     public static Color XanhDen { get; } = Color.FromArgb("#000055");
     public static Color LucDen { get; } = Color.FromArgb("#002200");
     public static Color XanhTrang { get; } = Color.FromArgb("#66FF66");
+    public static Color Kem { get; } = Color.FromArgb("#EECFA1");
+    public static Color TimXanh { get; } = Color.FromArgb("#CC99FF");
+    public static Color Do { get; } = Color.FromArgb("#FF0000");
 
 
 

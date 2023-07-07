@@ -47,7 +47,7 @@ class KeHoachState
                    .ItemsLayout(new VerticalLinearItemsLayout().ItemSpacing(20)),
                 }.GridRow(1)
             }
-        };
+        }.Set(MauiControls.NavigationPage.HasNavigationBarProperty,false);
     }
 
     private VisualNode RenderKeHoach(KeHoachCollection collection)

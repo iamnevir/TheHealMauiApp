@@ -19,6 +19,19 @@ class NavBar : Component<NavBarState>
     private bool _show;
     Action _onShowSearchPage;
     Action _onShowFavoritePage;
+    Action _onShowVideoPage;
+    Action _onShowCalcPage;
+
+    public NavBar OnShowVideoPage(Action action)
+    {
+        _onShowVideoPage = action;
+        return this;
+    }
+    public NavBar OnShowCalcPage(Action action)
+    {
+        _onShowCalcPage = action;
+        return this;
+    }
     public NavBar OnShowFavoritePage(Action action)
     {
         _onShowFavoritePage = action;
@@ -80,7 +93,8 @@ class NavBar : Component<NavBarState>
                             new NavBarButtonIcon()
                                 .Icon("dinner.png")
                                 .IsSelected(State.SelectedItem == NavItem.Recipes)
-                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Recipes)),
+                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Recipes))
+                                .Selected(_onShowCalcPage),
                             new NavBarButtonIcon()
                                 .Icon("search.png")
                                 .IsSelected(State.SelectedItem == NavItem.Search)
@@ -94,7 +108,8 @@ class NavBar : Component<NavBarState>
                             new NavBarButtonIcon()
                                 .Icon("play_button.png")
                                 .IsSelected(State.SelectedItem == NavItem.Play)
-                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Play)),
+                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Play))
+                                .Selected(_onShowVideoPage),
                             new NavBarButtonIcon()
                                 .Icon("book.png")
                                 .IsSelected(State.SelectedItem == NavItem.Book)

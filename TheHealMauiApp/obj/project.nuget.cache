@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YkWPm/Pfm6QuVRCRgrLnLKRZT6wC/5i299Fp5TNWnOzIvizSs8/l8r7mOi+Rkb5e5zC+Xi6Ay7TwjIuPcML2yw==",
+  "dgSpecHash": "I772GpbqSA6m07PNVEb+sibsajLcKDf6hmZGRjy1NCsdn1efmydP51YXVMocoK5OXg+/qL9p208p6xmMxN7c5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\trick\\source\\repos\\TheHealMauiApp\\TheHealMauiApp\\TheHealMauiApp.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.http\\7.0.0\\microsoft.extensions.http.7.0.0.nupkg.sha512",
     "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\trick\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",

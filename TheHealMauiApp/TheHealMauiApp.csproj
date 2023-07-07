@@ -41,6 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+    <None Remove="Resources\Images\Calc\bmi.png" />
+    <None Remove="Resources\Images\Calc\body.png" />
+    <None Remove="Resources\Images\Calc\calories.png" />
+    <None Remove="Resources\Images\Calc\female.png" />
+    <None Remove="Resources\Images\Calc\height.png" />
+    <None Remove="Resources\Images\Calc\male.png" />
+    <None Remove="Resources\Images\Calc\protein.png" />
+    <None Remove="Resources\Images\Calc\scale.png" />
+    <None Remove="Resources\Images\Calc\walking.png" />
+    <None Remove="Resources\Images\Calc\water.png" />
+    <None Remove="Resources\Images\Calc\weight.png" />
+    <None Remove="Resources\Images\Calc\year.png" />
     <None Remove="Resources\Images\CongThucNauAn\banhmytrung.png" />
     <None Remove="Resources\Images\CongThucNauAn\mangtay.png" />
     <None Remove="Resources\Images\CongThucNauAn\saladrau.png" />
@@ -108,6 +120,7 @@
     <EmbeddedResource Include="Resources\Images\NavBar\isearch.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="Reactor.Maui" Version="1.0.131" />
     <PackageReference Include="Reactor.Maui.Canvas" Version="1.0.131" />
     <PackageReference Include="Reactor.Maui.ScaffoldGenerator" Version="1.0.131" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
@@ -118,6 +131,18 @@
     <Folder Include="Resources\Styles\" />
   </ItemGroup>
   <ItemGroup>
+    <MauiImage Include="Resources\Images\Calc\bmi.png" />
+    <MauiImage Include="Resources\Images\Calc\body.png" />
+    <MauiImage Include="Resources\Images\Calc\calories.png" />
+    <MauiImage Include="Resources\Images\Calc\female.png" />
+    <MauiImage Include="Resources\Images\Calc\height.png" />
+    <MauiImage Include="Resources\Images\Calc\male.png" />
+    <MauiImage Include="Resources\Images\Calc\protein.png" />
+    <MauiImage Include="Resources\Images\Calc\scale.png" />
+    <MauiImage Include="Resources\Images\Calc\walking.png" />
+    <MauiImage Include="Resources\Images\Calc\water.png" />
+    <MauiImage Include="Resources\Images\Calc\weight.png" />
+    <MauiImage Include="Resources\Images\Calc\year.png" />
     <MauiImage Include="Resources\Images\CongThucNauAn\banhmytrung.png" />
     <MauiImage Include="Resources\Images\CongThucNauAn\mangtay.png" />
     <MauiImage Include="Resources\Images\CongThucNauAn\saladrau.png" />
