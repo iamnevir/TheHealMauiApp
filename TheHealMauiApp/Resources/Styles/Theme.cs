@@ -29,6 +29,7 @@ public  class Theme
     public static Color XanhNhat { get; } = Color.FromArgb("#88FFCC");
     public static Color XanhNhatNhungDamHonTi { get; } = Color.FromArgb("#00FFCC");
     public static Color XanhDam { get; } = Color.FromArgb("#66CC99");
+    public static Color XanhNuoc { get; } = Color.FromArgb("#3399FF");
 
 
 

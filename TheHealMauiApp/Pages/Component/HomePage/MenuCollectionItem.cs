@@ -2,6 +2,7 @@
 using MauiReactor.Animations;
 using MauiReactor.Canvas;
 using MauiReactor.Shapes;
+using System;
 using TheHealMauiApp.Models;
 using TheHealMauiApp.Resources.Styles;
 
@@ -12,8 +13,14 @@ class MenuCollectionItemState
 }
  class MenuCollectionItem:Component<MenuCollectionItemState>
 {
+    Action _onTapeed;
     MenuCollection[] _menuCollection1;
     MenuCollection[] _menuCollection2;
+    public MenuCollectionItem OnTapped(Action action)
+    {
+        _onTapeed = action;
+        return this;
+    }
     public MenuCollectionItem Collection1(MenuCollection[] menuCollection)
     {
         _menuCollection1 = menuCollection;
@@ -81,18 +88,25 @@ class MenuCollectionItemState
                     .WidthRequest(30)
                     .GridRow(2)
                     .Margin(0,0,10,10)
-                    .BackgroundColor(collection.Background)
+                    .BackgroundColor(Colors.Transparent)
                     .StrokeThickness(0)
                     ,
 
                }
-           }.BackgroundColor(collection.Background)
+           }
+           .Background(new MauiControls.LinearGradientBrush(
+                                    new MauiControls.GradientStopCollection
+                                    {
+                                        new MauiControls.GradientStop(collection.Background1, 0.1535f),
+                                        new MauiControls.GradientStop(collection.Background2, 0.8795f),
+                                    }))
            .HeightRequest(200)
            .WidthRequest(160)
            .StrokeShape(new RoundRectangle().CornerRadius(30))
            .StrokeThickness(1)
            .Stroke(Colors.Transparent)
            .Shadow(new Shadow().Brush(Theme.ShadowBrush).Offset(1,1).Opacity(0.2f))
+           .OnTapped(_onTapeed)
        };
     }
 }

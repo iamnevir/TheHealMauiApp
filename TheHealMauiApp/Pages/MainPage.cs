@@ -116,7 +116,8 @@ class MainPage : Component<MainPageState>
                                   new MenuCollectionItem()
                                       .Collection1(MenuCollection.Collections1)
                                       .Collection2(MenuCollection.Collections11)
-                                      .GridRow(0),
+                                      .GridRow(0)
+                                      .OnTapped(()=>SetState(s=>s.ShowOnboarding=true)),
 
                                   new Label("Tin")
                                             .FontSize(20)
@@ -172,7 +173,8 @@ class MainPage : Component<MainPageState>
                                    new MenuCollectionItem()
                                       .Collection1(MenuCollection.Collections2)
                                       .Collection2(MenuCollection.Collections21)
-                                      .GridRow(6),
+                                      .GridRow(6)
+                                      .OnTapped(()=>SetState(s=>s.ShowOnboarding=true)),
                                    new Border()
                                    {
                                        new Label("Made with love by Nevir")
@@ -211,7 +213,8 @@ class MainPage : Component<MainPageState>
                     .Aspect(Aspect.AspectFill)
                 }.HeightRequest(160)
                     .WidthRequest(340)
-                    .VStart(),
+                    .VStart()
+                    .OnTapped(()=>SetState(s=>s.ShowOnboarding=true)),
                 new Label("Free")
                     .TextColor(Colors.Gray)
                     .FontSize(11)
@@ -278,6 +281,7 @@ class MainPage : Component<MainPageState>
         .Stroke(collection.Mau)
         .StrokeThickness(4)
         .BackgroundColor(Colors.White)
+        .OnTapped(() => SetState(s => s.ShowOnboarding = true))
         ;
     }
 }

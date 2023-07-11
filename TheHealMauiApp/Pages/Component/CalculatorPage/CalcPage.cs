@@ -42,34 +42,29 @@ class CalcPageState
     }
     protected override void OnPropsChanged()
     {
-        if (State.CuongDo == CuongDo.it)
+        switch (State.CuongDo)
         {
-            protein = 1.2;
-            cuongdo = 1;
+            case CuongDo.it :
+                 protein = 1.2;
+                 cuongdo = 1;
+                 break;
+            case CuongDo.vua:
+                protein = 1.5;
+                cuongdo = 2;
+                break;
+            case CuongDo.cao:
+                protein = 2;
+                cuongdo = 3;
+                break;
+            case CuongDo.ratcao:
+                protein = 2.5;
+                cuongdo = 4;
+                break;
+            case CuongDo.asian:
+                protein = 5;
+                cuongdo = 10;
+                break;
         }
-        else if (State.CuongDo == CuongDo.vua)
-        {
-            protein = 1.5;
-            cuongdo = 2;
-        }
-        else if (State.CuongDo == CuongDo.cao)
-        {
-            protein = 2;
-            cuongdo = 3;
-        }
-        else if (State.CuongDo == CuongDo.ratcao)
-        {
-
-            protein = 2.5;
-            cuongdo = 4;
-        }
-        else
-        {
-
-            protein = 5;
-            cuongdo =10;
-        }
-
         CalcBmi();
         CalcNuoc();
         CalcIbw();
@@ -89,31 +84,29 @@ class CalcPageState
     private void CalcBmi()
     {
         State.Bmi = int.Parse(State.CanNang)*Math.Pow(100,2) / Math.Pow(int.Parse(State.ChieuCao), 2);
-        if(State.Bmi <= 16)
+        switch (State.Bmi)
         {
-            bmi = "(Bạn rất gầy)";
-        }
-        else if (State.Bmi > 16 && State.Bmi < 18)
-        {
-            bmi = "(Bạn gầy)";
-        }
-        else if (State.Bmi >= 18 && State.Bmi < 24)
-        {
-            bmi = "(Bạn cân đối)";
-        }
-        else if (State.Bmi >= 24 && State.Bmi < 30)
-        {
-            bmi = "(Bạn béo =)))";
-        }
-        else
-        {
-            bmi = "(Bạn béo vcl =)))";
+            case <= 16:
+                bmi = "(Bạn gầy)";
+                break;
+            case <=18:
+                bmi = "(Bạn thiếu cân)";
+                break;
+            case <= 24:
+                bmi = "(Bạn cân đối)";
+                break;
+            case <= 30:
+                bmi = "(Bạn thừa cân)";
+                break;
+            case > 30:
+                bmi = "(Bạn béo phì)";
+                break;
         }
         State.Show = true;
     }
     private void CalcNuoc()
     {
-        State.Lit = int.Parse(State.CanNang) * pound * (2 / 3) * oz + (12 * oz * cuongdo);
+        State.Lit = int.Parse(State.CanNang) * pound * 2 / 3 * oz + (12 * oz * cuongdo);
     }
     private void CalcProtein()
     {
