@@ -159,13 +159,13 @@ class CalcPageState
                             new Grid("Auto,Auto,Auto","*")
                             {  RenderEntry("Chiều cao", State.ChieuCao.ToString(),"height", v=>State.ChieuCao=v, true)
                                     .GridRow(0)
-                                    .Margin(0,24,0,0),
+                                    .Margin(5,24,0,0),
                                 RenderEntry("Cân nặng", State.CanNang.ToString(),"weight", v=>State.CanNang=v, true)
                                  .GridRow(1)
-                                    .Margin(0,24,0,0),
+                                    .Margin(5,24,0,0),
                                  RenderEntry("Tuổi", State.Tuoi.ToString(),"year", v=>State.Tuoi=v, true)
                                   .GridRow(2)
-                                    .Margin(0,24,0,0),
+                                    .Margin(5,24,0,0),
                             }
 
                         }.GridRow(1),
@@ -249,8 +249,16 @@ class CalcPageState
     static Border RenderOption(string label,Color textcolor,Color bg ) =>
         new Border
         {
-            new Label(label).TextColor(textcolor).FontSize(12).HCenter().VCenter().HorizontalTextAlignment(TextAlignment.Center).FontAttributes(Microsoft.Maui.Controls.FontAttributes.Bold)
-        }.BackgroundColor(bg).StrokeShape(new RoundRectangle().CornerRadius(20)).HeightRequest(70).WidthRequest(70);
+            new Label(label).TextColor(textcolor)
+            .FontSize(11)
+            .HCenter()
+            .VCenter()
+            .HorizontalTextAlignment(TextAlignment.Center)
+            .FontAttributes(MauiControls.FontAttributes.Bold)
+        }.BackgroundColor(bg)
+        .StrokeShape(new RoundRectangle().CornerRadius(20))
+        .HeightRequest(70)
+        .WidthRequest(70);
     static Grid RenderEntry(string label, string value,string image, Action<string> onSetValueAction, bool isEnabled, string secondaryLabel = null)
         => new("26, 50", "*, *")
         {
@@ -292,7 +300,7 @@ class CalcPageState
                 .FontSize(15)
                 .IsEnabled(isEnabled)
                 .OnTextChanged(onSetValueAction)
-                .Margin(8+24+15, 5, 8, 8)
+                .Margin(8+24+15+10, 5, 8, 8)
                 .GridRow(1)
                 .GridColumnSpan(2)
 

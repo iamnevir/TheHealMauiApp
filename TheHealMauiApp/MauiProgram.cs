@@ -1,10 +1,12 @@
-﻿using MauiReactor;
+﻿
+using MauiReactor;
 using Microsoft.Extensions.DependencyInjection;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using System;
 using System.Net.Http;
 using TheHealMauiApp.Pages;
 using TheHealMauiApp.Services;
+using Xe.AcrylicView;
 
 namespace TheHealMauiApp
 {
@@ -16,7 +18,7 @@ namespace TheHealMauiApp
             builder
                 .UseMauiReactorApp<MainPage>()
                 .UseSkiaSharp()
-             
+                 .UseAcrylicView()
 #if DEBUG
             .EnableMauiReactorHotReload()
 #endif
@@ -27,8 +29,7 @@ namespace TheHealMauiApp
                     fonts.AddFont("Poppins-Bold.ttf", "PoppinsBold");
                 });
             Controls.Native.BorderlessEntry.Configure();
-            builder.Services.AddHttpClient(TheMealServices.MealHttpClientName, httpClient =>
-                httpClient.BaseAddress = new Uri("https://www.themealdb.com/"));
+            builder.Services.AddMealServices(new Uri("https://www.themealdb.com/"));
             return builder.Build();
         }
     }

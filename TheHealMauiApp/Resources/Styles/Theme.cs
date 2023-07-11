@@ -26,6 +26,9 @@ public  class Theme
     public static Color Kem { get; } = Color.FromArgb("#EECFA1");
     public static Color TimXanh { get; } = Color.FromArgb("#CC99FF");
     public static Color Do { get; } = Color.FromArgb("#FF0000");
+    public static Color XanhNhat { get; } = Color.FromArgb("#88FFCC");
+    public static Color XanhNhatNhungDamHonTi { get; } = Color.FromArgb("#00FFCC");
+    public static Color XanhDam { get; } = Color.FromArgb("#66CC99");
 
 
 

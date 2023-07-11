@@ -102,6 +102,22 @@
     <None Remove="Resources\Images\Stories\lunch.png" />
     <None Remove="Resources\Images\Stories\recipe.png" />
     <None Remove="Resources\Images\Stories\salad.png" />
+    <None Remove="Resources\Images\ThucPham\bidao.png" />
+    <None Remove="Resources\Images\ThucPham\boa.png" />
+    <None Remove="Resources\Images\ThucPham\dua.png" />
+    <None Remove="Resources\Images\ThucPham\duachuot.png" />
+    <None Remove="Resources\Images\ThucPham\dudu.png" />
+    <None Remove="Resources\Images\ThucPham\fruit.png" />
+    <None Remove="Resources\Images\ThucPham\lettuce.png" />
+    <None Remove="Resources\Images\ThucPham\muopdang.png" />
+    <None Remove="Resources\Images\ThucPham\oi.png" />
+    <None Remove="Resources\Images\ThucPham\raucaingong.png" />
+    <None Remove="Resources\Images\ThucPham\seed.png" />
+    <None Remove="Resources\Images\ThucPham\thit.png" />
+    <None Remove="Resources\Images\ThucPham\tom.png" />
+    <None Remove="Resources\Images\ThucPham\ucga.png" />
+    <None Remove="Resources\Images\ThucPham\vailon.png" />
+    <None Remove="Resources\Images\ThucPham\xoai.png" />
     <None Remove="Resources\Raw\login_failed.json" />
     <None Remove="Resources\Raw\login_successful.json" />
   </ItemGroup>
@@ -120,10 +136,11 @@
     <EmbeddedResource Include="Resources\Images\NavBar\isearch.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AcrylicView.Maui" Version="1.13.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
-    <PackageReference Include="Reactor.Maui" Version="1.0.131" />
-    <PackageReference Include="Reactor.Maui.Canvas" Version="1.0.131" />
-    <PackageReference Include="Reactor.Maui.ScaffoldGenerator" Version="1.0.131" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <PackageReference Include="Reactor.Maui" Version="1.0.137" />
+    <PackageReference Include="Reactor.Maui.Canvas" Version="1.0.137" />
+    <PackageReference Include="Reactor.Maui.ScaffoldGenerator" Version="1.0.137" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
     <PackageReference Include="Syncfusion.Maui.Popup" Version="22.1.36" />
   </ItemGroup>
@@ -179,5 +196,26 @@
     <MauiImage Include="Resources\Images\Stories\lunch.png" />
     <MauiImage Include="Resources\Images\Stories\recipe.png" />
     <MauiImage Include="Resources\Images\Stories\salad.png" />
+    <MauiImage Include="Resources\Images\ThucPham\bidao.png" />
+    <MauiImage Include="Resources\Images\ThucPham\boa.png" />
+    <MauiImage Include="Resources\Images\ThucPham\dua.png" />
+    <MauiImage Include="Resources\Images\ThucPham\duachuot.png" />
+    <MauiImage Include="Resources\Images\ThucPham\dudu.png" />
+    <MauiImage Include="Resources\Images\ThucPham\fruit.png" />
+    <MauiImage Include="Resources\Images\ThucPham\lettuce.png" />
+    <MauiImage Include="Resources\Images\ThucPham\muopdang.png" />
+    <MauiImage Include="Resources\Images\ThucPham\oi.png" />
+    <MauiImage Include="Resources\Images\ThucPham\raucaingong.png" />
+    <MauiImage Include="Resources\Images\ThucPham\seed.png" />
+    <MauiImage Include="Resources\Images\ThucPham\thit.png" />
+    <MauiImage Include="Resources\Images\ThucPham\tom.png" />
+    <MauiImage Include="Resources\Images\ThucPham\ucga.png" />
+    <MauiImage Include="Resources\Images\ThucPham\vailon.png" />
+    <MauiImage Include="Resources\Images\ThucPham\xoai.png" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
+    <PackageReference Include="DevExpress.Maui.DataGrid">
+      <Version>23.1.3</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>

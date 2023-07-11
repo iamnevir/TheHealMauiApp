@@ -60,7 +60,7 @@ class Onboarding : Component<OnboardingState>
                 .OnClose(()=>SetState(s => s.ShowLogin = false)),
         }
         .TranslationY(State.TranslationY)
-        .WithAnimation(easing: ExtendedEasing.InOutCirc, duration: 600)
+        .WithAnimation(easing: ExtendedEasing.InOutCirc, duration: 1000)
         .ZIndex(5);
     }
 

@@ -9,7 +9,7 @@ using TheHealMauiApp.Models;
 
 namespace TheHealMauiApp.Services;
 
-public class TheMealServices
+public class TheMealServices: ITheMealServices
 {
     public const string MealHttpClientName = "TheMealServices";
     readonly IHttpClientFactory _httpClientFactory;
@@ -19,11 +19,11 @@ public class TheMealServices
     
     public async Task<IEnumerable<Category>> GetCategoryAsync()
     {
-        var categories = await _httpClient.GetFromJsonAsync<CategoriesList>($"{TheMealUrl.Category}");
-        return categories.Categories.Select(r => r.ToCategoryObject());
+        var categories = await _httpClient.GetFromJsonAsync<CategoriesList>($"{TheMealUri.Category}");
+        return categories.Categories.Select(r => r.ToCategoryObject()) ?? throw new InvalidOperationException(); ;
     }
 }
-public static class TheMealUrl
+public static class TheMealUri
 {
     public const string Category = "api/json/v1/1/categories.php";
 }

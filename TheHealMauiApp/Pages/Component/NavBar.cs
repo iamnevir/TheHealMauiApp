@@ -4,8 +4,14 @@ using MauiReactor;
 using TheHealMauiApp.Models;
 using MauiReactor.Canvas;
 using System;
+using Xe.AcrylicView.Controls;
 
 namespace TheHealMauiApp.Pages.Component;
+
+
+
+[Scaffold(typeof(Xe.AcrylicView.AcrylicView))]
+partial class AcrylicView { }
 
 class NavBarState
 {
@@ -21,7 +27,13 @@ class NavBar : Component<NavBarState>
     Action _onShowFavoritePage;
     Action _onShowVideoPage;
     Action _onShowCalcPage;
+    Action _onShowBachPage;
 
+    public NavBar OnShowBachPage(Action action)
+    {
+        _onShowBachPage = action;
+        return this;
+    }
     public NavBar OnShowVideoPage(Action action)
     {
         _onShowVideoPage = action;
@@ -65,25 +77,13 @@ class NavBar : Component<NavBarState>
 
     public override VisualNode Render()
     {
-        return new CanvasView()
+        return new AcrylicView
         {
-            new Box()
-            {
-                new Group()
-                {
-                    new Box()
-                        .Background(new MauiControls.LinearGradientBrush(
-                            new MauiControls.GradientStopCollection
-                            {
-                                new MauiControls.GradientStop(Colors.Transparent, 0.0f),
-                                new MauiControls.GradientStop(Colors.White.WithAlpha(0.3f), 1.0f),
-                            }, new Point(0.5,0.0), new Point(0.5, 1.0)))
-                        .BorderColor(Colors.White.WithAlpha(0.5f))
-                        .CornerRadius(30),
-
-                    new Box
-                    {
-                        new Row()
+                new CanvasView()
+        {
+               new Box
+               {
+                   new Row()
                         {
                             new NavBarButtonIcon()
                                 .Icon("home.png")
@@ -113,27 +113,33 @@ class NavBar : Component<NavBarState>
                             new NavBarButtonIcon()
                                 .Icon("book.png")
                                 .IsSelected(State.SelectedItem == NavItem.Book)
-                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Book)),
+                                .OnSelected(()=>SetState(s => s.SelectedItem = NavItem.Book))
+                                .Selected(_onShowBachPage),
                         }
-                    }
-                    .Padding(22, 7)
-                }
-            }
-            .BackgroundColor(Colors.White)
-            .CornerRadius(30)
+               }
+               .Padding(22, 7)
+               .BackgroundColor(Colors.Transparent)
+               .CornerRadius(30)
         }
-        .Margin(35, 0, 35, 50)
-        .HeightRequest(55)
+       .HeightRequest(55)
+       .VCenter()
+       .Shadow(new Shadow()
+                   .Brush(Colors.Black)
+                   .Opacity(0.4f)
+                   .Radius(300)
+                   .Offset(0.0, 10.0))
+       .TranslationY(State.TranslationY)
+       .WithAnimation(ExtendedEasing.InOutBack, duration: 400)
+       .BackgroundColor(Colors.Transparent)
+        }.EffectStyle(EffectStyle.ExtraLight)
+        .HeightRequest (55)
+        .BorderColor(Colors.White)
+        .BorderThickness(0)
         .VEnd()
-        .Shadow(new Shadow()
-                    .Brush(Colors.Black)
-                    .Opacity(0.4f)
-                    .Radius(300)
-                    .Offset(0.0,10.0))
-        .TranslationY(State.TranslationY)
-        .WithAnimation(ExtendedEasing.InOutBack, duration: 400)
-        .BackgroundColor(Colors.Transparent)
-        ;
+        .Margin(35, 0, 35, 50)
+        .CornerRadius (30)
+       ;
+    
     }
 }
 

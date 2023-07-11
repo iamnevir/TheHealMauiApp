@@ -97,6 +97,7 @@ Xamarin.Kotlin.StdLib.Jdk7.dll
 Xamarin.Kotlin.StdLib.Jdk8.dll
 Xamarin.KotlinX.Coroutines.Android.dll
 Xamarin.KotlinX.Coroutines.Core.Jvm.dll
+Xe.AcrylicView.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.arch.core.core-runtime.aar
 androidx.lifecycle.lifecycle-runtime.aar
@@ -170,3 +171,4 @@ Microsoft.Maui.Essentials.aar
 Syncfusion.Maui.Core.aar
 Syncfusion.Maui.Popup.aar
 Xamarin.Google.Crypto.Tink.Android.aar
+Xe.AcrylicView.aar

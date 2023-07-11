@@ -2,11 +2,13 @@
 using MauiReactor.Shapes;
 using TheHealMauiApp.Models;
 using TheHealMauiApp.Pages.Component;
+using TheHealMauiApp.Pages.Component.BachKhoaPage;
 using TheHealMauiApp.Pages.Component.CalculatorPage;
 using TheHealMauiApp.Pages.Component.FavoritePage;
 using TheHealMauiApp.Pages.Component.HomePage;
 using TheHealMauiApp.Pages.Component.VideoPage;
 using TheHealMauiApp.Resources.Styles;
+using Xe.AcrylicView.Controls;
 
 namespace TheHealMauiApp.Pages;
 
@@ -33,6 +35,11 @@ class MainPage : Component<MainPageState>
     {
         await Navigation.PushAsync<CalcPage>();
     }
+    private async void OpenBachKhoaToanThu()
+    {
+        await Navigation.PushAsync<BachKhoaToanThuPage>();
+    }
+
     protected override void OnMounted()
     {
         State.IsScrollDown = true;
@@ -54,8 +61,9 @@ class MainPage : Component<MainPageState>
                         new SearchPage()
                               .OnClose(()=>SetState(s => s.ShowSearchPage = false))
                               .Show(State.ShowSearchPage),
-
-                          new Border
+                        new AcrylicView
+                        {
+                             new Border
                              {
                                   new Grid()
                                   {
@@ -86,13 +94,20 @@ class MainPage : Component<MainPageState>
                                   }.BackgroundColor(Colors.Transparent)
                                    .HeightRequest(55)
                                    .VStart()
-                             }.BackgroundColor(Colors.White)
+                             }.BackgroundColor(Colors.Transparent)
                               .StrokeThickness(0)
                               .HeightRequest (55)
                               .Margin(0,-1,0,0)
                               .VStart()
                               .StrokeShape(new RoundRectangle().CornerRadius(4))
-                              .ZIndex(1),
+                              
+                        }.EffectStyle(EffectStyle.ExtraLight)
+                        .VStart()
+                        .HeightRequest (55)
+                        .Margin(0,-1,0,0)
+                        .CornerRadius(4)
+                        .ZIndex(1)
+                        ,
                           new ScrollView
                           {
 
@@ -175,6 +190,8 @@ class MainPage : Component<MainPageState>
                               .OnShowFavoritePage(OpenKeHoach)
                               .OnShowVideoPage(OpenVideo)
                               .OnShowCalcPage(OpenCalc)
+                              .OnShowBachPage(OpenBachKhoaToanThu)
+                              
 
                     }
             }.Set(MauiControls.NavigationPage.HasNavigationBarProperty, false)
